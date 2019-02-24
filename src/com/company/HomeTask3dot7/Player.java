@@ -2,6 +2,8 @@ package com.company.HomeTask3dot7;
 
 import com.company.HomeTask3dot7.Ball;
 
+import java.util.Random;
+
 public class Player {
     int number;
     double x;
@@ -15,15 +17,16 @@ public class Player {
     }
 
     public void move(double xDisp, double yDisp) {
-
+        x = xDisp;
+        y = yDisp;
     }
 
     public void jump(double zDisp) {
-
+        z = zDisp;
     }
 
     public boolean near(Ball ball) {
-        int distance = 0;
+        double distance = Math.sqrt(((ball.getX() - x)*(ball.getX() - x)) + ((ball.getY()-y)*(ball.getY()-y)));
         if (distance < 8) {
             return true;
         }
@@ -31,6 +34,11 @@ public class Player {
     }
 
     public void kick(Ball ball) {
+        Random r = new Random();
+        if(near(ball)){
+            ball.setXYZ(r.nextInt(20)-10 + ball.getX(),r.nextInt(20)-10 + ball.getY(), 0);
+
+        }
     }
 }
 

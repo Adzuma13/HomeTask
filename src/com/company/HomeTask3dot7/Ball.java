@@ -1,9 +1,9 @@
 package com.company.HomeTask3dot7;
 
 public class Ball {
-    double x;
-    double y;
-    double z;
+   private double x;
+    private double y;
+    private double z;
 
     public Ball(double x, double y, double z) {
         this.x = x;
